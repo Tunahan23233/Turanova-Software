@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
@@ -185,7 +185,6 @@
             backdrop-filter: blur(6px);
         }
 
-        /* Animasyonlar sadece main için */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -199,58 +198,6 @@
         }
 
         /* Mobil Uyumluluk */
-        @media (max-width: 768px) {
-            .menu {
-                flex-direction: column;
-                background: rgba(20,20,20,0.95);
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                display: none;
-            }
-
-                .menu.active {
-                    display: flex;
-                }
-
-                .menu a {
-                    padding: 15px;
-                    border-bottom: 1px solid rgba(255,255,255,0.1);
-                }
-
-                    .menu a::after {
-                        display: none;
-                    }
-
-            .hamburger {
-                display: block;
-                cursor: pointer;
-            }
-
-            .dropdown-content {
-                position: static;
-                background: none;
-                border: none;
-                box-shadow: none;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                display: none;
-                margin-top: 5px;
-            }
-
-            .dropdown.show .dropdown-content {
-                display: block;
-            }
-
-            .dropdown-content a {
-                padding: 10px 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-        }
-
         .hamburger {
             display: none;
             position: absolute;
@@ -258,6 +205,67 @@
             top: 25px;
             font-size: 25px;
             color: #fff;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                background: rgba(20,20,20,0.95);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                display: none;
+                z-index: 999;
+            }
+
+                .menu.active {
+                    display: block;
+                }
+
+                .menu li {
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                }
+
+                    .menu li a {
+                        display: block;
+                        padding: 15px 0;
+                    }
+
+                .menu a::after {
+                    display: none;
+                }
+
+            .hamburger {
+                display: block;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background: rgba(20,20,20,0.95);
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                overflow: hidden;
+                transform: translateY(-10px);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            .dropdown.show .dropdown-content {
+                display: block;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .dropdown-content a {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
         }
     </style>
 </head>
@@ -312,7 +320,7 @@
         });
 
         document.addEventListener('click', e => {
-            if (!e.target.closest('.dropdown')) {
+            if (!e.target.closest('.dropdown') && !e.target.closest('.hamburger')) {
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
             }
         });
