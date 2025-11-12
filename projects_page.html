@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Turanova Software - Hikayemiz</title>
+    <title>Turanova Software - Projelerimiz</title>
     <link rel="icon" href="images/turanova.ico" type="image/x-icon">
     <style>
         /* Google Font */
@@ -188,69 +188,74 @@
             }
         }
 
-        /* Mobil Uyumluluk */
+
+        .hamburger {
+            display: none;
+        }
+
         @media (max-width: 768px) {
-            .menu {
-                flex-direction: column;
-                background: rgba(20, 20, 20, 0.95);
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                display: none;
-            }
-
-                .menu.active {
-                    display: flex;
-                }
-
-                .menu a {
-                    padding: 15px;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                }
-
-                    .menu a::after {
-                        display: none;
-                    }
-
             .hamburger {
                 display: block;
                 cursor: pointer;
+                position: absolute;
+                right: 25px;
+                top: 25px;
+                font-size: 25px;
+                color: #fff;
+                z-index: 1000;
             }
 
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* header altından başlasın */
+                left: 0;
+                width: 100%;
+                background: rgba(20,20,20,0.95);
+                z-index: 999;
+            }
+
+                .menu.active {
+                    display: block;
+                }
+
+                .menu li {
+                    text-align: center;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                }
+
+                    .menu li a {
+                        display: block;
+                        padding: 15px 0;
+                    }
+
+            /* Dropdown mobilde */
             .dropdown-content {
                 position: static;
-                background: none;
+                display: none;
+                background: rgba(20,20,20,0.95);
+                margin: 0;
                 border: none;
                 box-shadow: none;
-                backdrop-filter: none;
-                transform: none;
-                opacity: 1;
-                visibility: visible;
-                display: none;
-                margin-top: 5px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                transform: translateY(-10px);
+                opacity: 0;
             }
 
             .dropdown.show .dropdown-content {
                 display: block;
+                transform: translateY(0);
+                opacity: 1;
             }
 
             .dropdown-content a {
                 padding: 10px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
         }
-
-        .hamburger {
-            display: none;
-            position: absolute;
-            right: 25px;
-            top: 25px;
-            font-size: 25px;
-            color: #fff;
-        }
-
+    
         h1 {
             text-align: center;
             color: #ff1a1a;
@@ -319,12 +324,7 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
+     
 
         main {
             display: block;
