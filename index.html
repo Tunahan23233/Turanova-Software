@@ -1,0 +1,500 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Turanova Software - Hikayemiz</title>
+    <link rel="icon" href="images/turanova.ico" type="image/x-icon">
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        /* Genel Ayarlar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #0a0a0a, #000);
+            color: #eee;
+            overflow-x: hidden;
+            padding-top: 90px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            z-index: 999;
+            transition: all 0.4s ease;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff1a1a;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 20px 25px;
+            display: inline-block;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+            .menu a {
+                text-decoration: none;
+                color: #ddd;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+                .menu a::after {
+                    content: "";
+                    position: absolute;
+                    width: 0%;
+                    height: 2px;
+                    background: #ff1a1a;
+                    bottom: -3px;
+                    left: 0;
+                    transition: width 0.3s;
+                }
+
+                .menu a:hover {
+                    color: #fff;
+                }
+
+                    .menu a:hover::after {
+                        width: 100%;
+                    }
+
+        /* --- Dropdown Menü --- */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(6px);
+            border: 1px solid #ff1a1a;
+            border-radius: 12px;
+            min-width: 180px;
+            top: 40px;
+            left: 0;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .dropdown.show .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            color: #ccc;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+            .dropdown-content a:hover {
+                background-color: rgba(255, 0, 0, 0.1);
+                color: #fff;
+            }
+
+        /* Hikaye Bölümü */
+        section {
+            max-width: 1100px;
+            margin: 100px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            color: #ff1a1a;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.9);
+            color: #aaa;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(6px);
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                background: rgba(20, 20, 20, 0.95);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                display: none;
+            }
+
+                .menu.active {
+                    display: flex;
+                }
+
+                .menu a {
+                    padding: 15px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                    .menu a::after {
+                        display: none;
+                    }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .dropdown-content {
+                position: static;
+                background: none;
+                border: none;
+                box-shadow: none;
+                backdrop-filter: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                margin-top: 5px;
+            }
+
+            .dropdown.show .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content a {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .hamburger {
+            display: none;
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            font-size: 25px;
+            color: #fff;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: url('images/turanova.jpg') center/cover fixed no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+                z-index: 1;
+            }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+            .hero-content h1 {
+                font-size: 60px;
+                font-family: 'Orbitron', sans-serif;
+                color: #ff1a1a;
+                text-shadow: 0 0 25px rgba(255, 0, 0, 0.8), 0 0 50px rgba(255, 0, 0, 0.3);
+                margin-bottom: 20px;
+                animation: neon 2s ease-in-out infinite alternate;
+            }
+
+            .hero-content p {
+                font-size: 20px;
+                color: #ddd;
+                line-height: 1.6;
+                max-width: 700px;
+                margin: 0 auto 30px auto;
+            }
+
+            .hero-content a {
+                display: inline-block;
+                padding: 15px 35px;
+                font-weight: 600;
+                background: linear-gradient(90deg, #ff1a1a, #ff4d4d);
+                color: white;
+                border-radius: 10px;
+                text-decoration: none;
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+                transition: all 0.3s ease;
+            }
+
+                .hero-content a:hover {
+                    transform: scale(1.08);
+                    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+                }
+
+        /* ==== Projeler ==== */
+        #projeler {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+            #projeler h2 {
+                color: #ff1a1a;
+                text-align: center;
+                font-size: 38px;
+                margin-bottom: 60px;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #111, #1a1a1a);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.15);
+            transition: all 0.35s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-10px) scale(1.03);
+                box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+            }
+
+            .card img {
+                width: 100%;
+                height: 190px;
+                object-fit: cover;
+                border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+            }
+
+        .card-content {
+            padding: 20px;
+            color: #fff;
+        }
+
+            .card-content h3 {
+                color: #ff4c4c;
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff1a1a, 0 0 30px #ff1a1a;
+            }
+
+            to {
+                text-shadow: 0 0 25px #ff4d4d, 0 0 50px #ff4d4d, 0 0 75px #ff4d4d;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Turanova Software</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="projects_page.html">Projeler</a></li>
+                <li class="dropdown">
+                    <a href="#">Hakkımızda</a>
+                    <ul class="dropdown-content" style="list-style:none;">
+                        <li><a href="vizyonumuz.html">Vizyonumuz</a></li>
+                        <li><a href="misyonumuz.html">Misyonumuz</a></li>
+                        <li><a href="hikaye.html">Hikayemiz</a></li>
+                    </ul>
+                </li>
+                <li><a href="ise_alim_sartlari_calisma_kurallari.html">İşe Alım Şartları</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="Turanova_News.html">Haberler</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Yazılımın Geleceği Burada Yazılıyor</h1>
+            <p>Turanova Software olarak masaüstü, web, mobil ve oyun çözümlerinde uzmanız.</p>
+            <a href="#projeler">Projelerimizi Gör</a>
+        </div>
+    </section>
+
+    <section id="projeler">
+        <h2>Projelerimiz</h2>
+        <div class="projects-grid">
+
+            <div class="card">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQEf_87IuSJWjA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1683310242348?e=2147483647&v=beta&t=HOol0n_y817450k5QmgRyrcrlXMxZp93x-lmBIrpSjc" alt="C# Masaüstü">
+                <div class="card-content">
+                    <h3>C# Masaüstü Uygulamalar</h3>
+                    <p>Kurumsal ve bireysel çözümler için yüksek performanslı masaüstü uygulamalar geliştiriyoruz.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlO9f3Z_GlWQDUsU78ogTRz4uf0CYSmIvjag&s" alt="Web">
+                <div class="card-content">
+                    <h3>Web Siteleri (HTML/CSS/JS)</h3>
+                    <p>Modern, responsive ve animasyonlu web çözümleri sunuyoruz.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://i.sstatic.net/RGWn9.png" alt="Mobil">
+                <div class="card-content">
+                    <h3>Mobil Uygulamalar (Flutter)</h3>
+                    <p>Android ve iOS için etkili ve şık uygulamalar geliştiriyoruz.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://code.visualstudio.com/assets/docs/other/unity/unity-overview.png" alt="Oyun">
+                <div class="card-content">
+                    <h3>Oyun Geliştirme (Unity)</h3>
+                    <p>2D ve 3D oyun projelerinde yaratıcı ve teknik çözümler sunuyoruz.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://www.thoughtco.com/thmb/MEislETCe3di63EGjNhkYiOUL08=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-864592206-5a80ff9904d1cf00378ccc18.jpg" alt="Veritabanı">
+                <div class="card-content">
+                    <h3>Veritabanı Uygulamaları</h3>
+                    <p>MySQL ve MSSQL ile güçlü, güvenilir veritabanı çözümleri sağlıyoruz.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://josef.codes/content/images/2023/01/Screenshot_3-1.png" alt="API">
+                <div class="card-content">
+                    <h3>MVC ve API Çözümleri</h3>
+                    <p>Modüler yazılım geliştirme mimarileriyle hızlı ve sürdürülebilir çözümler üretiyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Turanova Software. Tüm hakları saklıdır.
+    </footer>
+
+    <script>
+        // Mobil menü aç/kapa
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+
+        // Dropdown menü tıklama ile aç/kapa
+        document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
+            dropdownToggle.addEventListener('click', e => {
+                e.preventDefault();
+                const dropdown = dropdownToggle.parentElement;
+                dropdown.classList.toggle('show');
+
+                // Diğer açık dropdownları kapat
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('show');
+                });
+            });
+        });
+
+        // Menü dışında tıklanınca dropdown'ı kapat
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+            }
+        });
+    </script>
+
+</body>
+</html>

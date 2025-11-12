@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <title>Turanova Mors Gizli Haberleşme</title>
+    <link rel="icon" href="images/turanova.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top left, #0a0a0a, #000000);
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(20,20,20,0.85);
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(255,0,0,0.6), 0 0 60px rgba(255,0,0,0.2) inset;
+            padding: 40px;
+            width: 90%;
+            max-width: 700px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,0,0,0.4);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            color: #ff1a1a;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255,0,0,0.7);
+        }
+
+        h3 {
+            color: #ff4d4d;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px rgba(255,0,0,0.5);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            font-size: 16px;
+            resize: none;
+            box-shadow: 0 4px 15px rgba(255,0,0,0.3) inset;
+            transition: all 0.3s ease;
+        }
+
+            textarea:focus {
+                outline: none;
+                background: rgba(30,0,0,0.7);
+                box-shadow: 0 0 20px rgba(255,0,0,0.7) inset;
+            }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(145deg, #ff1a1a, #cc0000);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255,0,0,0.6), 0 0 20px rgba(255,0,0,0.2) inset;
+            transition: all 0.3s ease;
+        }
+
+            button:hover {
+                background: linear-gradient(145deg, #cc0000, #ff4d4d);
+                box-shadow: 0 8px 25px rgba(255,0,0,0.8), 0 0 30px rgba(255,0,0,0.4) inset;
+            }
+
+        p {
+            font-family: 'Roboto Mono', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        hr {
+            border: 1px solid rgba(255,0,0,0.4);
+            margin: 30px 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            button, textarea {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Turanova Mors Gizli Haberleşme</h2>
+
+        <h3>1. Yazıyı Mors'a Çevir</h3>
+        <textarea id="textInput" rows="4" placeholder="Yazı girin..."></textarea>
+        <button onclick="yaziToMorsButton()">Mors'a Çevir</button>
+        <p><strong>Sonuç:</strong></p>
+        <p id="morsOutput"></p>
+
+        <hr>
+
+        <h3>2. Mors'u Yazıya Çevir</h3>
+        <textarea id="morsInput" rows="4" placeholder="Mors kodu girin..."></textarea>
+        <button onclick="morsToYaziButton()">Yazıya Çevir</button>
+        <p><strong>Sonuç:</strong></p>
+        <p id="textOutput"></p>
+    </div>
+
+    <script>
+        // Benzersiz Mors sözlüğü (sadece ., -, _ kullanıldı)
+        const harfToMors = {
+            'A': '.-', 'B': '-..', 'C': '-.-', 'Ç': '--.-', 'D': '-...', 'E': '..',
+            'F': '..-.', 'G': '--.', 'Ğ': '---.', 'H': '....', 'I': '..-', 'İ': '..--',
+            'J': '.---', 'K': '-.-.', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+            'Ö': '---.', 'P': '.--.', 'Q': '--.-.', 'R': '.-.', 'S': '...', 'Ş': '...-',
+            'T': '-', 'U': '..-', 'Ü': '..--', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..',
+
+            'a': '.-_', 'b': '-.._', 'c': '-.-_', 'ç': '--.-_', 'd': '-..._', 'e': '..._',
+            'f': '..-._', 'g': '--._', 'ğ': '---._', 'h': '...._', 'ı': '..-_', 'i': '..-__',
+            'j': '.---_', 'k': '-.-._', 'l': '.-.._', 'm': '--_', 'n': '-._', 'o': '---_',
+            'ö': '---._', 'p': '.--._', 'q': '--.-._', 'r': '.-._', 's': '...-_', 'ş': '...-._',
+            't': '-_', 'u': '..-_', 'ü': '..-.__', 'v': '...-_', 'w': '.--_', 'x': '-..-_',
+            'y': '-.--_', 'z': '--.._',
+
+            '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+            '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+
+            ' ': '/', '!': '-.-.--', '"': '.-..--', '#': '....--', '$': '..-..-', '%': '.--.-.',
+            '&': '.-...', '\'': '.----.', '(': '-.--.', ')': '-.--.-', '*': '-..-.', '+': '.-.-.',
+            ',': '--..--', '-': '-....-', '.': '.-.-.-', '/': '-..-.', ':': '---...', ';': '-.-.-.',
+            '<': '.-..-.', '=': '-...-', '>': '.-...-', '?': '..--..', '@': '.--.-.', '^': '...-.-',
+            '_': '..--.-', '`': '.----.', '{': '-.--.', '}': '-.--.-', '[': '-.--.', ']': '-.--.-',
+            '|': '-..-.-', '~': '.-.-..'
+        };
+
+        // Ters sözlük
+        const morsToHarf = {};
+        for (let harf in harfToMors) {
+            morsToHarf[harfToMors[harf]] = harf;
+        }
+
+        // Textarea wrapper fonksiyonları
+        function yaziToMorsButton() {
+            const text = document.getElementById("textInput").value;
+            const sonuc = yaziToMors(text);
+            document.getElementById("morsOutput").innerText = sonuc;
+        }
+
+        function morsToYaziButton() {
+            const mors = document.getElementById("morsInput").value;
+            const sonuc = morsToYazi(mors);
+            document.getElementById("textOutput").innerText = sonuc;
+        }
+
+        // Asıl çeviri fonksiyonları
+        function yaziToMors(text) {
+            let sonuc = "";
+            for (let i = 0; i < text.length; i++) {
+                const harf = text[i];
+                sonuc += harfToMors[harf] ? harfToMors[harf] + " " : "? ";
+            }
+            return sonuc.trim();
+        }
+
+        function morsToYazi(mors) {
+            const kodlar = mors.trim().split(" ");
+            let sonuc = "";
+            for (let kod of kodlar) {
+                if (kod === "/") sonuc += " ";
+                else sonuc += morsToHarf[kod] ? morsToHarf[kod] : "?";
+            }
+            return sonuc;
+        }
+    </script>
+</body>
+</html>

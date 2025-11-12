@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Turanova Software - Hikayemiz</title>
+    <link rel="icon" href="images/turanova.ico" type="image/x-icon">
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        /* Genel Ayarlar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #0a0a0a, #000);
+            color: #eee;
+            overflow-x: hidden;
+            padding-top: 90px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            z-index: 999;
+            transition: all 0.4s ease;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff1a1a;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 20px 25px;
+            display: inline-block;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+            .menu a {
+                text-decoration: none;
+                color: #ddd;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+                .menu a::after {
+                    content: "";
+                    position: absolute;
+                    width: 0%;
+                    height: 2px;
+                    background: #ff1a1a;
+                    bottom: -3px;
+                    left: 0;
+                    transition: width 0.3s;
+                }
+
+                .menu a:hover {
+                    color: #fff;
+                }
+
+                    .menu a:hover::after {
+                        width: 100%;
+                    }
+
+        /* --- Dropdown Menü --- */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(6px);
+            border: 1px solid #ff1a1a;
+            border-radius: 12px;
+            min-width: 180px;
+            top: 40px;
+            left: 0;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .dropdown.show .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            color: #ccc;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+            .dropdown-content a:hover {
+                background-color: rgba(255, 0, 0, 0.1);
+                color: #fff;
+            }
+
+        /* Hikaye Bölümü */
+        section {
+            max-width: 1100px;
+            margin: 100px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            color: #ff1a1a;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.9);
+            color: #aaa;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(6px);
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                background: rgba(20, 20, 20, 0.95);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                display: none;
+            }
+
+                .menu.active {
+                    display: flex;
+                }
+
+                .menu a {
+                    padding: 15px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                    .menu a::after {
+                        display: none;
+                    }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .dropdown-content {
+                position: static;
+                background: none;
+                border: none;
+                box-shadow: none;
+                backdrop-filter: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                margin-top: 5px;
+            }
+
+            .dropdown.show .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content a {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        .hamburger {
+            display: none;
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            font-size: 25px;
+            color: #fff;
+        }
+
+        section {
+            padding: 100px 10% 60px 10%;
+            max-width: 1100px;
+            margin: auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff2e2e;
+            font-size: 2.4em;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff0000;
+            }
+
+            to {
+                text-shadow: 0 0 25px #ff4d4d;
+            }
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #dcdcdc;
+            text-align: justify;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid #ff2e2e;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+
+
+        .vision-list {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0;
+        }
+
+            .vision-list li {
+                position: relative;
+                margin-bottom: 15px;
+                padding-left: 28px;
+                font-size: 1.05em;
+                color: #e6e6e6;
+                transition: transform 0.2s ease-in-out;
+            }
+
+                .vision-list li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    top: -2px;
+                    color: #ff0000;
+                    font-size: 1.5em;
+                    text-shadow: 0 0 6px #ff0000;
+                }
+
+                .vision-list li:hover {
+                    transform: translateX(8px);
+                    color: #ff4d4d;
+                }
+
+
+        .highlight {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        /* Mobil uyumluluk */
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 6%;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Turanova Software</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="projects_page.html">Projeler</a></li>
+                <li class="dropdown">
+                    <a href="#">Hakkımızda</a>
+                    <ul class="dropdown-content" style="list-style:none;">
+                        <li><a href="vizyonumuz.html">Vizyonumuz</a></li>
+                        <li><a href="misyonumuz.html">Misyonumuz</a></li>
+                        <li><a href="hikaye.html">Hikayemiz</a></li>
+                    </ul>
+                </li>
+                <li><a href="ise_alim_sartlari_calisma_kurallari.html">İşe Alım Şartları</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="Turanova_News.html">Haberler</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Vizyonumuz</h2>
+
+        <p>
+            <span class="highlight">Turanova Software</span> olarak vizyonumuz, yazılım teknolojilerini yalnızca araçlar olarak değil, bir hayalin gerçeğe dönüşmesinde kullanılan yaratıcı ve dönüştürücü güçler olarak görmektir. Her satır kodun bir hikâye anlattığına, her geliştirilen projenin bir ihtiyaca, bir amaca, hatta bir insan hayaline dokunduğuna inanıyoruz.
+        </p>
+
+        <p>
+            Bu inançla çıktığımız yolda hedefimiz:
+        </p>
+
+        <ul class="vision-list">
+            <li>Türkiye'nin teknoloji alanındaki potansiyelini dünya çapında görünür kılmak,</li>
+            <li>Yenilikçi fikirlerin yeşerdiği, mühendislik disipliniyle şekillendiği ve toplumsal faydaya dönüştüğü bir yazılım ekosistemi kurmak,</li>
+            <li>Gençlerin sadece kullanıcı değil üretici olduğu bir dijital gelecek inşa etmek,</li>
+            <li>Sadece teknolojiyi takip eden değil, teknolojiyi üreten ve yön veren öncü firmalardan biri olmaktır.</li>
+        </ul>
+
+
+        <p>
+            2022 yılında temelleri atılan bu hayal, 2025 yılında <span class="highlight">Turanova Software</span> adıyla bir vizyona dönüştü. Bu vizyon, yalnızca bir yazılım firması olmak değil; etik değerlere bağlı, liyakati esas alan, insan merkezli yaklaşımıyla teknolojiye yön veren, sürdürülebilir çözümler üreten bir gelecek tasarımcısı olmaktır.
+        </p>
+
+        <p>
+            Biz <span class="highlight">Turanova Software</span> olarak biliyoruz ki, büyük teknolojiler büyük hayallerle başlar. Ve bizim hayalimiz; kodlarla örülmüş bir geleceği insanlıkla buluşturmaktır.
+        </p>
+    </section>
+
+    <footer>
+        © 2025 Turanova Software. Tüm hakları saklıdır.
+    </footer>
+
+    <script>
+        // Mobil menü aç/kapa
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+
+        // Dropdown menü tıklama ile aç/kapa
+        document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
+            dropdownToggle.addEventListener('click', e => {
+                e.preventDefault();
+                const dropdown = dropdownToggle.parentElement;
+                dropdown.classList.toggle('show');
+
+                // Diğer açık dropdownları kapat
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('show');
+                });
+            });
+        });
+
+        // Menü dışında tıklanınca dropdown'ı kapat
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+            }
+        });
+    </script>
+
+</body>
+</html>
