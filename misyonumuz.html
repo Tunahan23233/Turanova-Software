@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Turanova Software - Hikayemiz</title>
+    <title>Turanova Software - Miisyonumuz</title>
     <link rel="icon" href="images/turanova.ico" type="image/x-icon">
     <style>
         /* Google Font */
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        /*@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');*/
 
         /* Genel Ayarlar */
-        * {
+        /** {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -22,10 +22,10 @@
             color: #eee;
             overflow-x: hidden;
             padding-top: 90px;
-        }
+        }*/
 
         /* Header */
-        header {
+        /*header {
             position: fixed;
             top: 0;
             left: 0;
@@ -85,10 +85,10 @@
 
                     .menu a:hover::after {
                         width: 100%;
-                    }
+                    }*/
 
         /* --- Dropdown Menü --- */
-        .dropdown {
+        /*.dropdown {
             position: relative;
         }
 
@@ -128,10 +128,10 @@
             .dropdown-content a:hover {
                 background-color: rgba(255, 0, 0, 0.1);
                 color: #fff;
-            }
+            }*/
 
         /* Hikaye Bölümü */
-        section {
+        /*section {
             max-width: 1100px;
             margin: 100px auto;
             padding: 40px;
@@ -158,10 +158,10 @@
             font-size: 1.05em;
             color: #ddd;
             text-align: justify;
-        }
+        }*/
 
         /* Footer */
-        footer {
+        /*footer {
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -173,10 +173,10 @@
             font-size: 0.9em;
             letter-spacing: 0.5px;
             backdrop-filter: blur(6px);
-        }
+        }*/
 
         /* Animasyonlar */
-        @keyframes fadeIn {
+        /*@keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(40px);
@@ -186,10 +186,10 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
+        }*/
 
         /* Mobil Uyumluluk */
-        @media (max-width: 768px) {
+        /*@media (max-width: 768px) {
             .menu {
                 flex-direction: column;
                 background: rgba(20, 20, 20, 0.95);
@@ -278,10 +278,10 @@
             font-size: 1.1em;
             margin-bottom: 20px;
             text-align: justify;
-        }
+        }*/
 
         /* Sadece misyon kısmındaki listeye stil uygula */
-        .mission-list {
+        /*.mission-list {
             list-style: none;
             padding: 0;
             margin: 20px 0 40px 0;
@@ -339,6 +339,297 @@
             }
 
             ul li {
+                font-size: 1em;
+            }
+        }*/
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        /* Genel Ayarlar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #0a0a0a, #000);
+            color: #eee;
+            overflow-x: hidden;
+            padding-top: 90px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            z-index: 999;
+            transition: all 0.4s ease;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff1a1a;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 20px 25px;
+            display: inline-block;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+            .menu a {
+                text-decoration: none;
+                color: #ddd;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+                .menu a::after {
+                    content: "";
+                    position: absolute;
+                    width: 0%;
+                    height: 2px;
+                    background: #ff1a1a;
+                    bottom: -3px;
+                    left: 0;
+                    transition: width 0.3s;
+                }
+
+                .menu a:hover {
+                    color: #fff;
+                }
+
+                    .menu a:hover::after {
+                        width: 100%;
+                    }
+
+        /* Dropdown Menü */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(6px);
+            border: 1px solid #ff1a1a;
+            border-radius: 12px;
+            min-width: 180px;
+            top: 40px;
+            left: 0;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .dropdown.show .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            color: #ccc;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+            .dropdown-content a:hover {
+                background-color: rgba(255, 0, 0, 0.1);
+                color: #fff;
+            }
+
+        /* Hikaye Bölümü */
+        section {
+            max-width: 1100px;
+            margin: 100px auto;
+            padding: 60px 25px;
+            background: linear-gradient(145deg, #111, #0d0d0d);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
+            animation: fadeIn 1.3s ease-out;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff1a1a;
+            text-align: center;
+            font-size: 2.4em;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        p {
+            color: #d0d0d0;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Sadece misyon kısmındaki listeye stil uygula */
+        .mission-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 40px 0;
+        }
+
+            .mission-list li {
+                position: relative;
+                padding-left: 28px;
+                margin-bottom: 14px;
+                font-size: 1.05em;
+                color: #e6e6e6;
+                transition: transform 0.2s ease-in-out;
+            }
+
+                .mission-list li::before {
+                    content: "•";
+                    position: absolute;
+                    left: 0;
+                    top: -2px;
+                    color: #ff0000;
+                    font-size: 1.5em;
+                    text-shadow: 0 0 6px #ff0000;
+                }
+
+                .mission-list li:hover {
+                    transform: translateX(5px);
+                    color: #ff4d4d;
+                }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.9);
+            color: #aaa;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(6px);
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hamburger Menü */
+        .hamburger {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                right: 25px;
+                top: 25px;
+                font-size: 25px;
+                color: #fff;
+                z-index: 1000;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* header altından başlasın */
+                left: 0;
+                width: 100%;
+                background: rgba(20,20,20,0.95);
+                z-index: 999;
+            }
+
+                .menu.active {
+                    display: block;
+                }
+
+                .menu li {
+                    text-align: center;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                }
+
+                    .menu li a {
+                        display: block;
+                        padding: 15px 0;
+                    }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background: rgba(20,20,20,0.95);
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+
+            .dropdown.show .dropdown-content {
+                display: block;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .dropdown-content a {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            section {
+                margin: 60px 15px;
+                padding: 40px 20px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            p, ul li {
                 font-size: 1em;
             }
         }
