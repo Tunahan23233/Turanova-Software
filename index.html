@@ -834,30 +834,35 @@
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
             }
         });
-           let secretBuffer = "";
-   const secretKey = "turanovasoftware";
+      let secretBuffer = "";
+  const secretKey = "turanovasoftware";
+  const secretkey1 = "gizliözellikiste";
 
-   document.addEventListener("keydown", function (e) {
-       // Tuş değerini al
-       const char = e.key.length === 1 ? e.key : "";
+  document.addEventListener("keydown", function (e) {
+      // Tuş değerini al
+      const char = e.key.length === 1 ? e.key : "";
 
-       // Karakter ise buffera ekle
-       secretBuffer += char;
-       console.log(secretBuffer);
+      // Karakter ise buffera ekle
+      secretBuffer += char;
+      console.log(secretBuffer);
 
-       // Buffer boyutu fazla büyümesin
-       if (secretBuffer.length > secretKey.length)
-           secretBuffer = secretBuffer.slice(-secretKey.length);
+      // Buffer boyutu fazla büyümesin
+      if (secretBuffer.length > secretKey.length)
+          secretBuffer = secretBuffer.slice(-secretKey.length);
 
-       // Gizli kelime eşleşti mi?
-       if (secretBuffer === secretKey) {
-           window.location.href = "mors.html";
-       }
-   });
+      // Gizli kelime eşleşti mi?
+      if (secretBuffer === secretKey) {
+          window.location.href = "mors.html";
+      }
+      if (secretBuffer === secretkey1) {
+          alert("Sefa aklıma gizli özellik gelmedi bunu koydum;");
+      }
+  });
     </script>
 
 </body>
 </html>
+
 
 
 
