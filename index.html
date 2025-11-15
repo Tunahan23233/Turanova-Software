@@ -834,26 +834,30 @@
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
             }
         });
-         document.addEventListener("keydown", function (e) {
-     // Tuş değerini al
-     const char = e.key.length === 1 ? e.key : "";
+           let secretBuffer = "";
+   const secretKey = "turanovasoftware";
 
-     // Karakter ise buffera ekle
-     secretBuffer += char;
-     console.log(secretBuffer);
+   document.addEventListener("keydown", function (e) {
+       // Tuş değerini al
+       const char = e.key.length === 1 ? e.key : "";
 
-     // Buffer boyutu fazla büyümesin
-     if (secretBuffer.length > secretKey.length)
-         secretBuffer = secretBuffer.slice(-secretKey.length);
+       // Karakter ise buffera ekle
+       secretBuffer += char;
+       console.log(secretBuffer);
 
-     // Gizli kelime eşleşti mi?
-     if (secretBuffer === secretKey) {
-         window.location.href = "mors.html";
-     }
- });
+       // Buffer boyutu fazla büyümesin
+       if (secretBuffer.length > secretKey.length)
+           secretBuffer = secretBuffer.slice(-secretKey.length);
+
+       // Gizli kelime eşleşti mi?
+       if (secretBuffer === secretKey) {
+           window.location.href = "mors.html";
+       }
+   });
     </script>
 
 </body>
 </html>
+
 
 
