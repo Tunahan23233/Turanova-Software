@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Turanova Software - İşe Alım ve Çalışma Kuralları</title>
+    <title>Turanova Software - Haberler</title>
     <link rel="icon" href="images/turanova.ico" type="image/x-icon">
     <style>
         /* Google Font */
@@ -129,11 +129,12 @@
                 background-color: rgba(255, 0, 0, 0.1);
                 color: #fff;
             }*/
-        /* Section */
+
+        /* Hikaye Bölümü */
         /*section {
             max-width: 1100px;
-            margin: 40px auto;
-            padding: 30px 40px;
+            margin: 100px auto;
+            padding: 40px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 0, 0, 0.2);
             border-radius: 20px;
@@ -142,23 +143,22 @@
             animation: fadeIn 1.5s ease-in-out;
         }
 
-            section h3 {
-                color: #ff1a1a;
-                margin-bottom: 15px;
-                font-family: 'Orbitron', sans-serif;
-            }
+        h2 {
+            color: #ff1a1a;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+            text-align: center;
+        }
 
-            section p, section ul {
-                margin-bottom: 15px;
-                font-size: 1.05em;
-                line-height: 1.7;
-                color: #ddd;
-            }
-
-                section ul li {
-                    margin-left: 20px;
-                    margin-bottom: 10px;
-                }*/
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: #ddd;
+            text-align: justify;
+        }*/
 
         /* Footer */
         /*footer {
@@ -175,7 +175,7 @@
             backdrop-filter: blur(6px);
         }*/
 
-        /* Animasyon */
+        /* Animasyonlar */
         /*@keyframes fadeIn {
             from {
                 opacity: 0;
@@ -188,7 +188,7 @@
             }
         }*/
 
-        /* Mobil */
+        /* Mobil Uyumluluk */
         /*@media (max-width: 768px) {
             .menu {
                 flex-direction: column;
@@ -249,6 +249,102 @@
             top: 25px;
             font-size: 25px;
             color: #fff;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            color: #ff2e2e;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.6em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff0000;
+            }
+
+            to {
+                text-shadow: 0 0 25px #ff4d4d;
+            }
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #dcdcdc;
+            text-align: justify;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            border-left: 3px solid #ff2e2e;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+            img:hover {
+                transform: scale(1.02);
+            }
+
+        .date {
+            text-align: right;
+            font-size: 0.9em;
+            color: #ff6666;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 0, 0, 0.3);
+            margin: 50px 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 20px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
         }*/
         /* Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
@@ -261,8 +357,8 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at top, #0a0a0a, #000);
+            font-family: 'Poppins',sans-serif;
+            background: radial-gradient(circle at top,#0a0a0a,#000);
             color: #eee;
             overflow-x: hidden;
             padding-top: 90px;
@@ -274,16 +370,16 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(15, 15, 15, 0.8);
+            background: rgba(15,15,15,0.8);
             backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255,0,0,0.3);
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
             z-index: 999;
             transition: all 0.4s ease;
         }
 
         .logo {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Orbitron',sans-serif;
             color: #ff1a1a;
             font-size: 28px;
             font-weight: 700;
@@ -308,8 +404,8 @@
                 text-decoration: none;
                 color: #ddd;
                 font-weight: 500;
-                transition: all 0.3s ease;
                 position: relative;
+                transition: all 0.3s ease;
             }
 
                 .menu a::after {
@@ -341,14 +437,14 @@
             opacity: 0;
             visibility: hidden;
             position: absolute;
-            background: rgba(20, 20, 20, 0.95);
+            background: rgba(20,20,20,0.95);
             backdrop-filter: blur(6px);
             border: 1px solid #ff1a1a;
             border-radius: 12px;
             min-width: 180px;
             top: 40px;
             left: 0;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(255,0,0,0.2);
             transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 10;
@@ -370,61 +466,168 @@
         }
 
             .dropdown-content a:hover {
-                background-color: rgba(255, 0, 0, 0.1);
+                background-color: rgba(255,0,0,0.1);
                 color: #fff;
             }
-
-        /* Section */
-        section {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 30px 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-            section h3 {
-                color: #ff1a1a;
-                margin-bottom: 15px;
-                font-family: 'Orbitron', sans-serif;
-            }
-
-            section p, section ul {
-                margin-bottom: 15px;
-                font-size: 1.05em;
-                line-height: 1.7;
-                color: #ddd;
-            }
-
-                section ul li {
-                    margin-left: 20px;
-                    margin-bottom: 10px;
-                }
 
         /* Footer */
         footer {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background: rgba(15, 15, 15, 0.9);
+            background: rgba(15,15,15,0.9);
             color: #aaa;
             text-align: center;
             padding: 15px 0;
-            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            border-top: 1px solid rgba(255,0,0,0.2);
             font-size: 0.9em;
             letter-spacing: 0.5px;
             backdrop-filter: blur(6px);
         }
 
-        /* Animasyon */
+        /* Hamburger Menü */
+        /* Hamburger ve Mobil Menü */
+        .hamburger {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                right: 25px;
+                top: 25px;
+                font-size: 25px;
+                color: #fff;
+                z-index: 1000;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* header altından başlasın */
+                left: 0;
+                width: 100%;
+                background: rgba(20,20,20,0.95);
+                z-index: 999;
+            }
+
+                .menu.active {
+                    display: block;
+                }
+
+                .menu li {
+                    text-align: center;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                }
+
+                    .menu li a {
+                        display: block;
+                        padding: 15px 0;
+                    }
+
+            /* Dropdown mobilde */
+            .dropdown-content {
+                position: static;
+                display: none;
+                background: rgba(20,20,20,0.95);
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+
+            .dropdown.show .dropdown-content {
+                display: block;
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .dropdown-content a {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+        }
+        /* İçerik Tasarımı */
+        section {
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            padding: 30px 40px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,0,0,0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255,0,0,0.15);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            color: #ff2e2e;
+            font-family: 'Orbitron',sans-serif;
+            font-size: 2.6em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255,0,0,0.5);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff0000;
+            }
+
+            to {
+                text-shadow: 0 0 25px #ff4d4d;
+            }
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #dcdcdc;
+            text-align: justify;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            border-left: 3px solid #ff2e2e;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: 300px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+            img:hover {
+                transform: scale(1.02);
+            }
+
+        .date {
+            text-align: right;
+            font-size: 0.9em;
+            color: #ff6666;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255,0,0,0.3);
+            margin: 50px 0;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
             }
 
             to {
@@ -432,77 +635,10 @@
                 transform: translateY(0);
             }
         }
-
-        /* Hamburger ve Mobil Menü */
-        .hamburger {
-            display: none;
-            position: absolute;
-            right: 25px;
-            top: 25px;
-            font-size: 25px;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .menu {
-                display: none;
-                flex-direction: column;
-                background: rgba(20, 20, 20, 0.95);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                transition: all 0.3s ease;
-                z-index: 1000;
-            }
-
-                .menu.active {
-                    display: flex;
-                }
-
-                .menu li {
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                }
-
-                .menu a {
-                    display: block;
-                    padding: 15px 0;
-                    border-bottom: none;
-                }
-
-                    .menu a::after {
-                        display: none;
-                    }
-
-            .dropdown-content {
-                position: relative;
-                background: rgba(20,20,20,0.95);
-                border: none;
-                box-shadow: none;
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-                display: none;
-            }
-
-            .dropdown.show .dropdown-content {
-                display: block;
-            }
-
-            .dropdown-content a {
-                padding: 10px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-        }
     </style>
 </head>
 <body>
+
     <header>
         <div class="logo">Turanova Software</div>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -526,76 +662,31 @@
     </header>
 
     <section>
-        <h2>İşe Alım ve Çalışma Kuralları</h2>
+        <h1>Web Site Geliştirme</h1>
+        <img src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2023/09/code-editor-open-in-dark-mode.jpg" alt="Flutter Uygulama Geliştirme" />
 
-        <h3>Giriş</h3>
-        <p>Turanova Software, bilgi güvenliği, etik değerler ve yüksek performans ilkeleri doğrultusunda faaliyet göstermektedir. Şirketimizde çalışacak tüm personelin, aşağıdaki kural ve şartlara uyması zorunludur. Bu kurallar, hem bireysel hem de kurumsal sorumluluklarımızı güvence altına almayı amaçlamaktadır.</p>
+        <p>
+            Turanova Software olarak modern web teknolojileri kullanarak şık, hızlı ve kullanıcı dostu web uygulamaları geliştiriyoruz.
+            HTML5 ile yapılandırılmış, semantik ve erişilebilir web sayfaları tasarlıyor, CSS3 ile estetik ve responsive arayüzler oluşturuyoruz.
+            <br><br>
+            JavaScript kullanarak sayfalarınıza dinamik ve etkileşimli özellikler ekliyor, kullanıcı deneyimini artırıyoruz.
+            Modern JS kütüphaneleri ve frameworkleri (React, Vue, Angular) ile SPA (Single Page Application) mimarileri kurarak
+            hızlı ve performanslı web uygulamaları sağlıyoruz.
+            <br><br>
+            Projelerimizde AJAX ve Fetch API kullanarak veri iletimini optimize ediyor, web uygulamalarını API servisleri ve veritabanlarıyla entegre ediyoruz.
+            MSSQL, MySQL veya Firebase entegrasyonları sayesinde veriler güvenli ve ölçeklenebilir bir şekilde yönetilir.
+            <br><br>
+            Ayrıca web uygulamalarında SEO, erişilebilirlik ve performans optimizasyonunu ön planda tutuyor,
+            kullanıcıların her cihazda sorunsuz deneyim yaşamasını sağlıyoruz.
+            Animasyonlar, geçiş efektleri ve modern UI/UX tasarımları ile web projelerimiz hem görsel hem de işlevsel olarak üstün kalitededir.
+            <br><br>
+            Turanova Software web projeleri, güvenli, hızlı ve tamamen özelleştirilebilir çözümler sunar;
+            kullanıcıların ve işletmelerin ihtiyaçlarını en üst seviyede karşılayacak şekilde tasarlanır.
+        </p>
 
-        <h3>1. Bilgi Güvenliği</h3>
-        <ul>
-            <li>Şirket içi bilgiler ve projeler sadece yetkilendirilmiş kişilerle paylaşılabilir.</li>
-            <li>Hiçbir koşulda bilgi, yetkisiz kişilerle (şirket içi veya dışı) paylaşılamaz.</li>
-            <li>Çalışanlar, iş gereği edindikleri bilgileri sosyal medya, e-posta veya üçüncü taraf platformlarda paylaşamaz.</li>
-        </ul>
 
-        <h3>2. Erişim ve Yetkilendirme</h3>
-        <ul>
-            <li>Çalışanlar, sadece görev tanımları kapsamında gerekli olan sistem ve fiziksel alanlara erişim sağlayabilir.</li>
-            <li>Tüm erişimler biyometrik sistemler veya kişisel kimlik kartları ile kontrol edilir.</li>
-            <li>Yetkisiz erişim denemeleri disiplin cezası ile sonuçlanır.</li>
-        </ul>
 
-        <h3>3. Fiziksel Güvenlik</h3>
-        <ul>
-            <li>Şirket bina girişlerinde güvenlik kontrolü uygulanır.</li>
-            <li>Ziyaretçiler yalnızca yetkili rehber eşliğinde şirkete giriş yapabilir.</li>
-            <li>Çalışanlar, giriş-çıkış sırasında kimliklerini görünür şekilde taşımak zorundadır.</li>
-        </ul>
 
-        <h3>4. Proje ve Verilerin Korunması</h3>
-        <ul>
-            <li>Tüm proje belgeleri ve veriler şifrelenmiş sistemlerde saklanmalıdır.</li>
-            <li>Taşınabilir veri depolama aygıtları (USB, harici disk vb.) yalnızca onaylı cihazlarla kullanılabilir.</li>
-            <li>Çalışma alanında fiziksel doküman veya cihazlar gözetimsiz bırakılmamalıdır.</li>
-        </ul>
-
-        <h3>5. Disiplin ve Davranış Kuralları</h3>
-        <ul>
-            <li>Çalışanlar, şirket politikalarına ve etik kurallara sıkı sıkıya uymakla yükümlüdür.</li>
-            <li>Şirketin itibarını zedeleyecek her türlü davranış (şiddet, ayrımcılık vb.) kabul edilemez.</li>
-            <li>Tüm çalışanlar düzenli eğitimlere katılarak şirket politikalarını güncel tutmalıdır.</li>
-        </ul>
-
-        <h3>6. Teknik Ekipman Kullanımı</h3>
-        <ul>
-            <li>Şirket ekipmanları yalnızca iş amaçlı kullanılabilir.</li>
-            <li>Tüm cihazlarda güçlü şifreleme uygulanmalıdır.</li>
-            <li>Çalışma süresince dışarıdan izinsiz yazılım yüklenmesi yasaktır.</li>
-        </ul>
-
-        <h3>7. Gizlilik ve Çıkış Prosedürleri</h3>
-        <ul>
-            <li>Şirketten ayrılan çalışanlar tüm doküman, ekipman ve elektronik cihazları eksiksiz teslim etmek zorundadır.</li>
-            <li>Ayrıldıktan sonra şirket bilgilerini paylaşmak yasaktır; ihlal durumunda hukuki yaptırımlar uygulanır.</li>
-        </ul>
-
-        <h3>8. İç ve Dış İletişim</h3>
-        <ul>
-            <li>Şirket adına yapılacak basın açıklamaları yalnızca yetkilendirilmiş kişiler tarafından yapılabilir.</li>
-            <li>Hiçbir çalışan şirket politikaları veya projeleri hakkında basına veya üçüncü taraflara bilgi veremez.</li>
-        </ul>
-
-        <h3>9. Acil Durum ve Kriz Yönetimi</h3>
-        <ul>
-            <li>Acil durumlarda çalışanlar belirlenen tahliye planına uymak zorundadır.</li>
-            <li>Kriz dönemlerinde (siber saldırı, bilgi sızması vb.) yöneticilerin talimatlarına uyulmalıdır.</li>
-        </ul>
-
-        <h3>10. İnovasyon ve Fikri Mülkiyet</h3>
-        <ul>
-            <li>Çalışanlar tarafından geliştirilen tüm fikir ve projeler şirkete aittir.</li>
-            <li>Yeni fikirler yazılı olarak yönetime sunulmalı ve kayıt altına alınmalıdır.</li>
-        </ul>
     </section>
 
     <footer>
@@ -603,27 +694,32 @@
     </footer>
 
     <script>
+        // Mobil menü aç/kapa
         function toggleMenu() {
             document.querySelector('.menu').classList.toggle('active');
         }
 
+        // Dropdown menü tıklama ile aç/kapa
         document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
             dropdownToggle.addEventListener('click', e => {
                 e.preventDefault();
                 const dropdown = dropdownToggle.parentElement;
                 dropdown.classList.toggle('show');
 
+                // Diğer açık dropdownları kapat
                 document.querySelectorAll('.dropdown').forEach(d => {
                     if (d !== dropdown) d.classList.remove('show');
                 });
             });
         });
 
+        // Menü dışında tıklanınca dropdown'ı kapat
         document.addEventListener('click', e => {
             if (!e.target.closest('.dropdown')) {
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
             }
         });
     </script>
+
 </body>
 </html>

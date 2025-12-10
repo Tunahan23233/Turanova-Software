@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Turanova Software - Projelerimiz</title>
+    <title>Turanova Software - Hikayemiz</title>
     <link rel="icon" href="images/turanova.ico" type="image/x-icon">
     <style>
         /* Google Font */
@@ -87,7 +87,7 @@
                         width: 100%;
                     }
 
-        /* --- Dropdown Menü --- */
+        /* Dropdown */
         .dropdown {
             position: relative;
         }
@@ -126,7 +126,7 @@
         }
 
             .dropdown-content a:hover {
-                background-color: rgba(255, 0, 0, 0.1);
+                background-color: rgba(255,0,0,0.1);
                 color: #fff;
             }
 
@@ -148,7 +148,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 28px;
             margin-bottom: 20px;
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+            text-shadow: 0 0 8px rgba(255,0,0,0.4);
             text-align: center;
         }
 
@@ -165,17 +165,16 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            background: rgba(15, 15, 15, 0.9);
+            background: rgba(15,15,15,0.9);
             color: #aaa;
             text-align: center;
             padding: 15px 0;
-            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            border-top: 1px solid rgba(255,0,0,0.2);
             font-size: 0.9em;
             letter-spacing: 0.5px;
             backdrop-filter: blur(6px);
         }
 
-        /* Animasyonlar */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -188,7 +187,7 @@
             }
         }
 
-
+        /* Hamburger ve Mobil Menü */
         .hamburger {
             display: none;
         }
@@ -255,87 +254,6 @@
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
         }
-    
-        h1 {
-            text-align: center;
-            color: #ff1a1a;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 36px;
-            margin-bottom: 100px;
-            text-shadow: 0 0 15px rgba(255,0,0,0.6);
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-            .container a {
-                text-decoration: none; /* Alt çizgiyi kaldırır */
-                color: inherit; /* Yazı rengini bozmadan kalmasını sağlar */
-            }
-
-        .card {
-            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(255,0,0,0.4);
-            width: 300px;
-            overflow: hidden;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-            .card:hover {
-                transform: translateY(-15px) scale(1.02);
-                box-shadow: 0 12px 40px rgba(255,0,0,0.7);
-            }
-
-            .card img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-                filter: brightness(1.1);
-            }
-
-        .card-content {
-            padding: 25px;
-        }
-
-            .card-content h3 {
-                color: #ff1a1a;
-                font-family: 'Orbitron', sans-serif;
-                margin: 0 0 15px 0;
-                font-size: 1.4em;
-            }
-
-            .card-content p {
-                color: #ccc;
-                font-size: 0.95em;
-                line-height: 1.6;
-            }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-     
-
-        main {
-            display: block;
-            min-height: 100vh;
-            padding-top: calc(90px + 20px); /* header yüksekliği + ekstra boşluk */
-            padding-bottom: calc(60px + 20px); /* footer yüksekliği + ekstra boşluk */
-        }
     </style>
 </head>
 <body>
@@ -361,92 +279,36 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>Projelerimiz</h1>
-        <div class="container">
-            <a href="project_chsarp.html">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjdNADdqSImWoGKybpF4P5b96Ht1MLliQ5Q&s" alt="C# Projesi">
-                    <div class="card-content">
-                        <h3>C# Masaüstü Uygulama</h3>
-                        <p>Modern .NET Framework altyapısıyla geliştirilen güçlü masaüstü uygulaması.</p>
-                    </div>
-                </div>
-            </a>
-            <a href="project_flutter.html">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwy5C_v_6-y-S-cRyRFKAjx5Bji_ugRLNeQ&s" alt="Mobil Uygulama">
-                    <div class="card-content">
-                        <h3>Mobil Uygulama (Flutter)</h3>
-                        <p>Firebase destekli, iOS ve Android uyumlu şık mobil uygulama örneği.</p>
-                    </div>
-                </div>
-            </a>
-            <a href="project_c_plus_plus.html">
-                <div class="card">
-                    <img src="https://www.slashgear.com/img/gallery/understanding-arduinos-code-language-how-it-works/intro-1715101500.jpg" alt="Arduino Projesi">
-                    <div class="card-content">
-                        <h3>Arduino Robotik Sistem</h3>
-                        <p>Bluetooth kontrollü, sensör tabanlı robotik sistem projesi.</p>
-                    </div>
-                </div>
-            </a>
-            <a href="project_unity.html">
-                <div class="card">
-                    <img src="https://code.visualstudio.com/assets/docs/other/unity/unity-overview.png" alt="Unity Oyunu">
-                    <div class="card-content">
-                        <h3>Unity 3D Oyun</h3>
-                        <p>Gerçek zamanlı fizik motorlu, yüksek performanslı Unity oyunu.</p>
-                    </div>
-                </div>
-            </a>
-            <a href="project_web.html">
-                <div class="card">
-                    <img src="https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2023/09/code-editor-open-in-dark-mode.jpg" alt="Web Projesi">
-                    <div class="card-content">
-                        <h3>HTML/CSS/JS Web Projeleri</h3>
-                        <p>Modern ve responsive web arayüzleri. Kullanıcı dostu deneyimler sunuyoruz.</p>
-                    </div>
-                </div>
-            </a>
-            <a href="projects_database.html">
-                <div class="card">
-                    <img src="https://www.researchgate.net/publication/335202665/figure/fig2/AS:792439052857344@1565943601275/Code-snippet-of-database-connection-using-IF-statement.ppm" alt="Veritabanı Projesi">
-                    <div class="card-content">
-                        <h3>Veritabanı Uygulamaları</h3>
-                        <p>MSSQL, MySQL ve Firebase ile ölçeklenebilir ve güvenli uygulamalar geliştiriyoruz.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </main>
+
+    <section>
+        <h2>Turanova Software – Bir Hayalin Kodlara Dönüşme Hikayesi</h2>
+        <p>Her şey, 16 Haziran 2022'de Niğde'de, iki genç yazılım mühendisi Behram Bozkurt ve Tunahan Balcı'nın ortak bir hayaliyle başladı. Bu hayal, Bozkurt Savunma Sanayi adıyla temelleri atılan bir girişime dönüştü...</p>
+        <p>İlk günlerinde Arduino devreleriyle başlayan bu yolculuk, kısa sürede mobil, masaüstü ve web tabanlı uygulamalara evrildi...</p>
+        <p>Yıl 2025’e geldiğinde, vizyon artık çok daha büyüktü. 31 Mayıs 2025’te şirket, ismini yenileyerek Turanova Software adını aldı...</p>
+        <p>Şirketin hikayesi, sadece kurucularla sınırlı kalmadı. Tunahan Balcı'nın Afyon’dan Samsun’a yaptığı bir yolculuk, kaderin yeni bir satırını yazdı...</p>
+        <p>Bugün Turanova Software; yenilikçi projeler geliştiren, kaliteli yazılım çözümleri sunan, mühendislik gücüyle fark yaratan bir teknoloji firmasıdır...</p>
+    </section>
+
     <footer>
         © 2025 Turanova Software. Tüm hakları saklıdır.
     </footer>
 
     <script>
-        // Mobil menü aç/kapa
         function toggleMenu() {
             document.querySelector('.menu').classList.toggle('active');
         }
 
-        // Dropdown menü tıklama ile aç/kapa
         document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
             dropdownToggle.addEventListener('click', e => {
                 e.preventDefault();
                 const dropdown = dropdownToggle.parentElement;
                 dropdown.classList.toggle('show');
-
-                // Diğer açık dropdownları kapat
-                document.querySelectorAll('.dropdown').forEach(d => {
-                    if (d !== dropdown) d.classList.remove('show');
-                });
             });
         });
 
-        // Menü dışında tıklanınca dropdown'ı kapat
+        // Menü dışında tıklayınca dropdown kapatma
         document.addEventListener('click', e => {
-            if (!e.target.closest('.dropdown')) {
+            if (!e.target.closest('.dropdown') && !e.target.closest('.hamburger')) {
                 document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
             }
         });
